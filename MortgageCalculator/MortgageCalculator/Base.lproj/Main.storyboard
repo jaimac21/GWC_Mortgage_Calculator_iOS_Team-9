@@ -9,6 +9,36 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+    # Username label and entry
+    self.username_label = tk.Label(self, text="Username (must end with @gmail.com)")
+    self.username_label.pack()
+    self.username_entry = tk.Entry(self)
+    self.username_entry.pack()
+
+    # Password label and entry
+    self.password_label = tk.Label(self, text="Password")
+    self.password_label.pack()
+    self.password_entry = tk.Entry(self, show="*")
+    self.password_entry.pack()
+
+    # Login button
+    self.login_button = tk.Button(self, text="Login", command=self.login)
+    self.login_button.pack()
+
+    # Error message label
+    self.error_label = tk.Label(self, text="", fg="red")
+    self.error_label.pack()
+
+# Login function
+def login(self):
+    username = self.username_entry.get()
+    password = self.password_entry.get()
+
+    if username.endswith("@gmail.com") and username and password:
+        self.controller.show_frame("HomeDetailsScreen")
+    else:
+        self.error_label.config(text="Invalid login. Please use a valid @gmail.com email.")
+
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
